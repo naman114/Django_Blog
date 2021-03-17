@@ -8,20 +8,20 @@
             <fieldset class="form-group">
                 <!-- form group is a bootstrap class -->
                 <legend class="border-bottom mb-4">
-                    Join Today
+                    Log In
                 </legend>
                 {{ form|crispy }}
                   <!-- Just specifying the form will specify all the form labels and fields -->
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                <button class="btn btn-outline-info" type="submit">Login</button>
             </div>
         </form>
         <div class="border-top pt-3">
                <!-- padding top of 3 -->
                <small class="text-muted">
                     <!-- In bootstrap text-muted means dull text that doesn't stand out -->
-                    Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+                    Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
                </small>
         </div>
     </div>
