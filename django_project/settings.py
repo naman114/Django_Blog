@@ -136,20 +136,24 @@ LOGIN_URL = "login"
 
 import json
 
-with open("d:/Users/sumit/Desktop/Naman/Django/django_project/credentials.json") as f:
-    cred_json = json.load(f)
+# my_path = os.path.abspath(os.path.dirname(__file__))
+# path = os.path.join(my_path, "../credentials.json")
+
+# with open(path) as f:
+#     cred_json = json.load(f)
+
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = cred_json[0]["email"]
-EMAIL_HOST_PASSWORD = cred_json[0]["password"]
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 
 
-AWS_ACCESS_KEY_ID = cred_json[1]["aws_access_id"]
-AWS_SECRET_ACCESS_KEY = cred_json[1]["aws_secret_access_key"]
-AWS_STORAGE_BUCKET_NAME = cred_json[1]["aws_storage_bucket_name"]
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
 
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
